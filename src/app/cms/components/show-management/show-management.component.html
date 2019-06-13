@@ -1,0 +1,21 @@
+<div class="content form-row">
+  <div [hidden]="showRooms.length !== 0" class="show-room-content">
+    <input class="col-sm-4" type="text" placeholder="Name" [(ngModel)]="selectedRoom.name" />
+    <input class="col-sm-4" type="text" placeholder="Youtube Video URL" [(ngModel)]="selectedRoom.videoUrl" />
+    <button class="col-sm-2 btn btn-secondary" (click)="onSave()">Save</button>
+    <button class="col-sm-2 btn btn-secondary" (click)="onAdd()">Add</button>
+  </div>
+
+  <div class="col-sm-6" *ngFor="let room of showRooms; let i = index">
+    <div class="show-room-content" (mouseover)="onSelectRoom(room, i)">
+      <div class="col" id="getRoomId(i)" [hidden]="showEdit(i)" (mouseout)="hideEdit(i)">
+        <input class="col-sm-4" type="text" value="{{ room.name }}" [(ngModel)]="selectedRoom.name" />
+        <input class="col-sm-4" type="text" value="{{ room.videoUrl }}" [(ngModel)]="selectedRoom.videoUrl" />
+        <button class="col-sm-2 btn btn-secondary" (click)="onSave()">Save</button>
+        <button class="col-sm-2 btn btn-secondary" (click)="onAdd()">Add</button>
+      </div>
+
+      <lib-ytplayer videoId="{{ room.videoUrl }}" parameters="rel=0"></lib-ytplayer>
+    </div>
+  </div>
+</div>

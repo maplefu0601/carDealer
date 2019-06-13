@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  background-color: #6c757d;
+  height: 100%;
+}
+
+.message-body {
+  background: white;
+  min-height: 300px;
+  max-height: 400px;
+  overflow: scroll;
+}
+
+.body-left-20 {
+  padding-left: 20px;
+  padding-right: 15px;
+}
+
+.content {
+  height: 689px;
+  overflow: scroll;
+}
+
+.content-info {
+  height: 600px;
+  overflow: scroll;
+}
+
+.car-info {
+  height: 200px;
+  max-height: 200px;
+  overflow: scroll;
+}
+
+.car-image {
+  width: 150px;
+  height: 100px;
+}
+
+.show-room-content {
+  width: 400px;
+  height: 300px;
+  border: 1px red;
+}
+
+lib-ytplayer {
+  width: 320px;
+  height: 180px;
+  margin-bottom: 10px;
+}
+
+.top15 {
+  margin-top: 15px;
+}
+
+.bg-grey {
+  background: #555555;
+}

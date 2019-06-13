@@ -1,0 +1,120 @@
+<div class="container">
+  <div class="row ">
+    <div class="col-sm-6 content">
+      <div class="list-group">
+        <div
+          *ngFor="let car of cars; let i = index"
+          (click)="selectCar(car, i)"
+          class="car-info list-group-item list-group-item-action flex-column align-items-start"
+        >
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ car.make }} {{ car.model }}</h5>
+            <small>${{ car.price }}</small>
+            <span class="badge badge-secondary">x</span>
+          </div>
+          <div class="info" *ngIf="car.images">
+            <img class="car-image" [src]="sanitize(car.images[0])" />
+          </div>
+          <p class="mb-1">
+            {{ car.description }}
+          </p>
+          <small>Donec id elit non mi porta.</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 ">
+      <div class="card ">
+        <div class="card-header text-center">Car Information</div>
+        <div class="row col-md-12 text-center">
+          <div class="btn-group" role="group" aria-label="First group">
+            <button type="button" class="btn btn-secondary " (click)="removeCar()">Remove This Car</button>
+            <button type="button" class="btn btn-secondary " (click)="addNewCar()">Add New Car</button>
+            <button [disabled]="!edit" type="button" class="btn btn-secondary " (click)="copyCar()">
+              Copy This Car
+            </button>
+            <button type="button" class=" btn btn-secondary" (click)="save()">Save</button>
+          </div>
+        </div>
+        <div class="card-body content-info ">
+          <form [formGroup]="form">
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="make">Make</label>
+                <input
+                  id="make"
+                  value="{{ selectedCar.car.make }}"
+                  formControlName="brand"
+                  [(ngModel)]="selectedCar.car.brand"
+                />
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="model">Model</label>
+                <input
+                  id="model"
+                  value="{{ selectedCar.car.model }}"
+                  formControlName="model"
+                  [(ngModel)]="selectedCar.car.model"
+                />
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="year">Year</label>
+                <input
+                  id="year"
+                  value="{{ selectedCar.car.year }}"
+                  formControlName="year"
+                  [(ngModel)]="selectedCar.car.year"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="price">Price</label>
+                <input
+                  id="price"
+                  value="{{ selectedCar.car.price }}"
+                  formControlName="price"
+                  [(ngModel)]="selectedCar.car.price"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-auto">
+                <label for="description">Description</label>
+                <textarea
+                  class="col"
+                  id="description"
+                  value="{{ selectedCar.car.description }}"
+                  formControlName="description"
+                  [(ngModel)]="selectedCar.car.description"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div>
+                <label for="image" class="btn btn-secondary">Add More Photo</label>
+                <input
+                  id="image"
+                  style="visibility:hidden;"
+                  type="file"
+                  name="image"
+                  accept="image/*"
+                  (change)="onFileChanged($event)"
+                />
+              </div>
+              <div class="row">
+                <div class="col" *ngFor="let image of selectedCar.car.images">
+                  <img class="car-image" [src]="sanitize(image)" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

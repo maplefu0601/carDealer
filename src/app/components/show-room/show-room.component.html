@@ -1,0 +1,7 @@
+<div class="content form-row">
+  <div class="col-sm-6" *ngFor="let room of showRooms; let i = index">
+    <div class="show-room-content">
+      <lib-ytplayer videoId="{{ room.videoUrl }}" parameters="rel=0"></lib-ytplayer>
+    </div>
+  </div>
+</div>

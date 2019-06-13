@@ -1,0 +1,115 @@
+<div class="bg-secondary">
+  <div class=" text-center text-white bg-secondary mb-3"><h2 class="card-header">WenXiuXuan Car Dealer</h2></div>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="bg-secondary" [hidden]="appUser != 'ims'">
+      <nav class="navbar navbar-expand-sm bg-dark">
+        <div class="container-fluid">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a routerLink="ims/home" class="nav-link" routerLinkActive="active"> Home </a></li>
+            <li class="nav-item">
+              <a routerLink="ims/purchases" class="nav-link" routerLinkActive="active"> Purchase </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="ims/customers" class="nav-link" routerLinkActive="active"> Customer </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="ims/sales" class="nav-link" routerLinkActive="active"> Sales </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="ims/suppliers" class="nav-link" routerLinkActive="active"> Suppliers </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="ims/staff" class="nav-link" routerLinkActive="active"> Staff Management </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="ims/services" class="nav-link" routerLinkActive="active"> Services </a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-link my-2 my-sm-0" type="button" *ngIf="userLoggedin" (click)="logout()">
+              {{ userStatusIMS }}
+            </button>
+            <button class="btn btn-link my-2 my-sm-0" type="button" *ngIf="!userLoggedin" routerLink="ims/login">
+              {{ userStatusIMS }}
+            </button>
+          </form>
+        </div>
+      </nav>
+    </div>
+
+    <div class="bg-secondary" [hidden]="appUser != 'web'">
+      <nav class="navbar navbar-expand-sm bg-dark">
+        <div class="container-fluid">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a routerLink="home" class="nav-link" routerLinkActive="active"> Home </a></li>
+            <li class="nav-item">
+              <a routerLink="showRoom" class="nav-link" routerLinkActive="active"> Show Room </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="carInfo" class="nav-link" routerLinkActive="active"> Car Information </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="contactSales" class="nav-link" routerLinkActive="active"> Contact Sales </a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-link my-2 my-sm-0" type="button" *ngIf="userLoggedin" (click)="logout()">
+              {{ userStatus }}
+            </button>
+            <button class="btn btn-link my-2 my-sm-0" type="button" *ngIf="!userLoggedin" routerLink="login">
+              {{ userStatus }}
+            </button>
+          </form>
+        </div>
+      </nav>
+    </div>
+
+    <div class="bg-secondary" [hidden]="appUser != 'cms'">
+      <nav class="navbar navbar-expand-sm bg-dark">
+        <div class="container-fluid">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a routerLink="cms/home" class="nav-link" routerLinkActive="active"> Home </a></li>
+            <li class="nav-item">
+              <a routerLink="cms/show" class="nav-link" routerLinkActive="active"> Show Room Management </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="cms/car" class="nav-link" routerLinkActive="active"> Car Management </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="cms/promotions" class="nav-link" routerLinkActive="active"> Promotions </a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-link my-2 my-sm-0" type="button" *ngIf="userLoggedin" (click)="logout()">
+              {{ userStatusCMS }}
+            </button>
+            <button class="btn btn-link my-2 my-sm-0" type="button" *ngIf="!userLoggedin" routerLink="cms/login">
+              {{ userStatusCMS }}
+            </button>
+          </form>
+        </div>
+      </nav>
+    </div>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarToggleExternalContent"
+      aria-controls="navbarToggleExternalContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="row bg-dark p-2">
+      <a routerLink="cms/home" class="nav-link" routerLinkActive="active"> CMS </a>
+      <a routerLink="ims/home" class="nav-link" routerLinkActive="active"> IMS </a>
+    </div>
+  </div>
+
+  <div class="container bg-secondary"><router-outlet></router-outlet></div>
+</div>

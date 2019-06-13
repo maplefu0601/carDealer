@@ -1,0 +1,37 @@
+<div class="container top15">
+  <div *ngFor="let promotion of promotions; let i = index">
+    <div class="btn-group" role="group" aria-label="First group">
+      <button type="button" class="btn btn-dark " (click)="removeAds()">Remove This Promotion</button>
+      <button type="button" class="btn btn-dark " (click)="addNewAds()">Add New</button>
+      <button [disabled]="!edit" type="button" class="btn btn-dark " (click)="copyAds()">
+        Copy This Promotion
+      </button>
+      <button type="button" class=" btn btn-dark" (click)="save()">Save</button>
+    </div>
+    <form [formGroup]="form">
+      <div class="form-row card-header bg-grey">
+        <div class="col">
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="discount">Discount</label>
+              <input id="discount" type="text" value="{{ promotion.discount }}" formControlName="discount" />
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-row">
+            <div class="col-md-4 mb-4">
+              <label for="description">Description</label>
+              <textarea
+                id="description"
+                type="text"
+                value="{{ promotion.description }}"
+                formControlName="description"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

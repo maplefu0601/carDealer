@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="card bg-light mb-3 mx-auto">
+    <div class="card-header">Contact Sales</div>
+    <div class="card-body">
+      <div class="row col-md-12">
+        <input class="mx-auto w-50" placeholder="Name" [(ngModel)]="msg.name" />
+      </div>
+      <div class="row col-md-12">
+        <input class="mx-auto w-50" placeholder="Email" [(ngModel)]="msg.email" />
+      </div>
+      <div class="row col-md-12">
+        <input class="mx-auto w-50" placeholder="Phone" [(ngModel)]="msg.phone" />
+      </div>
+      <div class="row col-md-12">
+        <textarea class="mx-auto w-50" [(ngModel)]="msg.content">{{ msg.content }}</textarea>
+      </div>
+      <div class="row col-md-9 mt-4 justify-content-end">
+        <button class="btn btn-secondary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>

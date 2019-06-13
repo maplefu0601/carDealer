@@ -1,0 +1,170 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 content">
+      <div class="row" *ngFor="let item of purchases; index as i" (click)="selectPurchase(item, i)">
+        <div class="card text-center w-100">
+          <div class="card-header">
+            {{ item.name }}
+          </div>
+          <div class="card-body">
+            <div class="row w-100">
+              <div class="flex-fill mb-3">
+                <label for="make">Make:</label>
+                <label class="border border-light" id="make{{ i }}">{{ item.brand }}</label>
+              </div>
+              <div class="flex-fill mb-3">
+                <label for="make">Model:</label>
+                <label class="border border-light" id="model">{{ item.model }}</label>
+              </div>
+              <div class="flex-fill mb-3">
+                <label for="make">Year:</label>
+                <label class="border border-light" id="year">{{ item.year }}</label>
+              </div>
+              <div class="flex-fill mb-3">
+                <label for="make">Price:</label>
+                <label class="border border-light" id="price">${{ item.price }}</label>
+              </div>
+            </div>
+            <div class="row w-100">
+              <div class="flex-fill mb-3">
+                <label for="make">Purchased By:</label>
+                <label class="border border-light" id="purchasedBy">{{ item.purchasedBy }}</label>
+              </div>
+              <div class="flex-fill mb-3">
+                <label for="make">Purchased Date:</label>
+                <label class="border border-light" id="purchasedOn">{{ item.purchasedOn }}</label>
+              </div>
+            </div>
+            <div class="row w-100">
+              <div class="flex-fill mb-3">
+                <label for="make">Auditor:</label>
+                <label class="border border-light" id="auditedBy">{{ item.auditedBy }}</label>
+              </div>
+              <div class="flex-fill mb-3">
+                <label for="make">Audited Date:</label>
+                <label class="border border-light" id="auditedOn">{{ item.auditedOn }}</label>
+              </div>
+            </div>
+          </div>
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-toggle="collapse"
+            attr.data-target="#description-{{ i }}"
+            aria-expanded="false"
+            attr.aria-controls="description-{{ i }}"
+          >
+            ...
+          </button>
+          <div class="card-footer text-muted collapse multi-collapse" id="description-{{ i }}">
+            {{ item.description }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 content">
+      <div class="card text-center w-100 ml-1">
+        <div class="card-header">Editing {{ purchaseInfo.name }}</div>
+        <div class="mx-2">
+          <div class="d-flex mb-3 align-items-end">
+            <label for="make">Name:</label>
+            <input
+              class="flex-fill border border-secondary "
+              id="name{{ i }}"
+              type="text"
+              value="{{ purchaseInfo.name }}"
+              [(ngModel)]="purchaseInfo.name"
+            />
+          </div>
+          <div class="d-flex mb-3 align-items-end">
+            <label for="make">Make:</label>
+            <input
+              class="flex-fill border border-secondary "
+              id="make{{ i }}"
+              type="text"
+              value="{{ purchaseInfo.brand }}"
+              [(ngModel)]="purchaseInfo.brand"
+            />
+          </div>
+          <div class="d-flex  mb-3">
+            <label for="model">Model:</label>
+            <input
+              class="flex-fill border border-secondary"
+              id="model"
+              value="{{ purchaseInfo.model }}"
+              [(ngModel)]="purchaseInfo.model"
+            />
+          </div>
+          <div class="d-flex mb-3">
+            <label for="year">Year:</label>
+            <input
+              class="flex-fill border border-secondary"
+              id="year"
+              value="{{ purchaseInfo.year }}"
+              [(ngModel)]="purchaseInfo.year"
+            />
+          </div>
+          <div class="d-flex mb-3">
+            <label for="price">Price:</label>
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <input
+              class="flex-fill border border-secondary"
+              id="price"
+              value="{{ purchaseInfo.price }}"
+              [(ngModel)]="purchaseInfo.price"
+            />
+          </div>
+          <div class="d-flex mb-3">
+            <label for="make">Purchased By:</label>
+            <input
+              class="flex-fill border border-secondary"
+              id="purchasedBy"
+              value="{{ purchaseInfo.purchasedBy }}"
+              [(ngModel)]="purchaseInfo.purchasedBy"
+            />
+          </div>
+          <div class="d-flex mb-3">
+            <label for="make">Purchased Date:</label>
+            <input
+              class="flex-fill border border-secondary"
+              id="purchasedOn"
+              value="{{ purchaseInfo.purchasedOn }}"
+              [(ngModel)]="purchaseInfo.purchasedOn"
+            />
+          </div>
+          <div class="d-flex mb-3">
+            <label for="make">Auditor:</label>
+            <input
+              class="flex-fill border border-secondary"
+              id="auditedBy"
+              value="{{ purchaseInfo.auditedBy }}"
+              [(ngModel)]="purchaseInfo.auditedBy"
+            />
+          </div>
+          <div class="d-flex mb-3">
+            <label for="make">Audited Date:</label>
+            <input
+              class="flex-fill border border-secondary"
+              id="auditedOn"
+              value="{{ purchaseInfo.auditedOn }}"
+              [(ngModel)]="purchaseInfo.auditedOn"
+            />
+          </div>
+          <div class="d-flex mb-3">
+            <label for="make">Audited Date:</label>
+            <textarea
+              class="flex-fill border border-secondary"
+              id="description"
+              [(ngModel)]="purchaseInfo.description"
+              >{{ purchaseInfo.description }}</textarea
+            >
+          </div>
+        </div>
+
+        <button class="btn btn-secondary mt-2" (click)="save()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

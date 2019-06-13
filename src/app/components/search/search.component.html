@@ -1,0 +1,41 @@
+<form>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="make">Make</label>
+      <select id="make" class="custom-select" [(ngModel)]="dataSearch.brand" [ngModelOptions]="{ standalone: true }">
+        <option *ngFor="let car of this.carMakes" [ngValue]="car">{{ car.brand }}</option>
+      </select>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="model">Model</label>
+      <select id="model" class="custom-select" [(ngModel)]="dataSearch.model" [ngModelOptions]="{ standalone: true }">
+        <option *ngFor="let model of dataSearch.brand.models" [value]="model">{{ model }}</option>
+      </select>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="year">Year</label>
+      <select id="year" class="custom-select" [(ngModel)]="dataSearch.year" [ngModelOptions]="{ standalone: true }">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <label for="priceRange">Price: ${{ dataSearch.price }}</label>
+      <input
+        class="form-control-range"
+        type="range"
+        min="100"
+        max="100000"
+        id="priceRange"
+        value="dataSearch.price"
+        [(ngModel)]="dataSearch.price"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+  </div>
+  <button type="submit" class="btn btn-dark" (click)="onSearch()">Search</button>
+</form>

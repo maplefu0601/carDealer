@@ -1,0 +1,24 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "workers_node_Debug",
+      "program": "${workspaceFolder}/server/server.js",
+      "cwd": "${workspaceFolder}/server",
+      "runtimeExecutable": "/Users/raymondfu/.nvm/versions/node/v11.10.0/bin/node"
+    }
+    // {
+    //   "type": "node",
+    //   "request": "launch",
+    //   "name": "Launch Program",
+    //   "program": "${workspaceFolder}/serve/server.js",
+    //   "preLaunchTask": "tsc: build - tsconfig.json",
+    //   "outFiles": ["${workspaceFolder}/dist/out-tsc/**/*.js"]
+    // }
+  ]
+}

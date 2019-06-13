@@ -1,0 +1,193 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 content">
+      <div class="row" *ngFor="let item of customers; index as i" (click)="selectItem(item, i)">
+        <div class="card w-100">
+          <div class="card-header">
+            {{ item.name }}
+          </div>
+          <div class="card-body">
+            <div class="row w-100">
+              <div class="flex-fill mb-3">
+                <label for="make">Name:</label>
+                <label class="border border-light" id="name{{ i }}">{{ item.name }}</label>
+              </div>
+              <div class="flex-fill mb-3">
+                <label for="make">Gental:</label>
+                <label class="border border-light" id="gental">{{ item.personalInfo.gental }}</label>
+              </div>
+              <div class="flex-fill mb-3">
+                <label for="make">DOB:</label>
+                <label class="border border-light" id="dob">{{ item.personalInfo.DOB }}</label>
+              </div>
+            </div>
+            <div class="row w-100">
+              <div class="flex-fill mb-3">
+                <label for="make">Country:</label>
+                <label class="border border-light" id="country">{{ item.personalInfo.country }}</label>
+              </div>
+              <div class="flex-fill mb-3">
+                <label for="make">Provience:</label>
+                <label class="border border-light" id="provience">{{ item.personalInfo.provience }}</label>
+              </div>
+              <div class="flex-fill mb-3">
+                <label for="make">City:</label>
+                <label class="border border-light" id="city">{{ item.personalInfo.city }}</label>
+              </div>
+            </div>
+            <div class="row w-100">
+              <div class="flex-fill mb-3">
+                <label for="make">Address:</label>
+                <label class="border border-light" id="address">{{ item.address }}</label>
+              </div>
+            </div>
+            <div class="row w-100">
+              <div class="flex-fill mb-3">
+                <label for="make">Created By:</label>
+                <label class="border border-light" id="createdBy">{{ item.createdBy }}</label>
+              </div>
+              <div class="flex-fill mb-3">
+                <label for="make">Create Date:</label>
+                <label class="border border-light" id="createdOn">{{ item.createdOn }}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 content">
+      <div class="card text-center w-100 ml-1">
+        <div class="card-header">Editing {{ customerInfo.name }}</div>
+        <div class="mx-2">
+          <div class="d-flex mb-3 align-items-end">
+            <label for="make">Name:</label>
+            <input
+              class="flex-fill border border-secondary "
+              id="name{{ i }}"
+              type="text"
+              value="{{ customerInfo.name }}"
+              [(ngModel)]="customerInfo.name"
+            />
+          </div>
+          <div class="d-flex mb-3 align-items-end">
+            <label for="make">Created By:</label>
+            <input
+              class="flex-fill border border-secondary "
+              id="make{{ i }}"
+              type="text"
+              value="{{ customerInfo.createdBy }}"
+              [(ngModel)]="customerInfo.createdBy"
+            />
+          </div>
+          <div class="d-flex  mb-3">
+            <label for="model">Created Date:</label>
+            <input
+              class="flex-fill border border-secondary"
+              id="model"
+              value="{{ customerInfo.createdOn }}"
+              [(ngModel)]="customerInfo.createdOn"
+            />
+          </div>
+        </div>
+
+        <button
+          class="btn btn-secondary"
+          type="button"
+          data-toggle="collapse"
+          attr.data-target="#personalinfo-{{ i }}"
+          aria-expanded="false"
+          attr.aria-controls="personalinfo-{{ i }}"
+        >
+          Personl Infomation
+        </button>
+        <div class="card-footer text-muted collapse multi-collapse" id="personalinfo-{{ i }}">
+          <div class="d-flex mb-3 align-items-end">
+            <label for="make">Created By:</label>
+            <input
+              class="flex-fill border border-secondary "
+              id="make{{ i }}"
+              type="text"
+              value="{{ customerInfo.createdBy }}"
+              [(ngModel)]="customerInfo.createdBy"
+            />
+          </div>
+          <div class="d-flex  mb-3">
+            <label for="model">Created Date:</label>
+            <input
+              class="flex-fill border border-secondary"
+              id="model"
+              value="{{ customerInfo.createdOn }}"
+              [(ngModel)]="customerInfo.createdOn"
+            />
+          </div>
+        </div>
+
+        <button
+          class="btn btn-secondary border-light"
+          type="button"
+          data-toggle="collapse"
+          attr.data-target="#paymentinfo-{{ i }}"
+          aria-expanded="false"
+          attr.aria-controls="paymentinfo-{{ i }}"
+        >
+          Payment Infomation
+        </button>
+        <div class="card-footer text-muted collapse multi-collapse" id="paymentinfo-{{ i }}">
+          <div class="d-flex mb-3 align-items-end">
+            <label for="make">Created By:</label>
+            <input
+              class="flex-fill border border-secondary "
+              id="make{{ i }}"
+              type="text"
+              value="{{ customerInfo.createdBy }}"
+              [(ngModel)]="customerInfo.createdBy"
+            />
+          </div>
+          <div class="d-flex  mb-3">
+            <label for="model">Created Date:</label>
+            <input
+              class="flex-fill border border-secondary"
+              id="model"
+              value="{{ customerInfo.createdOn }}"
+              [(ngModel)]="customerInfo.createdOn"
+            />
+          </div>
+        </div>
+
+        <button
+          class="btn btn-secondary"
+          type="button"
+          data-toggle="collapse"
+          attr.data-target="#shippinginfo-{{ i }}"
+          aria-expanded="false"
+          attr.aria-controls="shippinginfo-{{ i }}"
+        >
+          Shipping Infomation
+        </button>
+        <div class="card-footer text-muted collapse multi-collapse" id="shippinginfo-{{ i }}">
+          <div class="d-flex mb-3 align-items-end">
+            <label for="make">Created By:</label>
+            <input
+              class="flex-fill border border-secondary "
+              id="make{{ i }}"
+              type="text"
+              value="{{ customerInfo.createdBy }}"
+              [(ngModel)]="customerInfo.createdBy"
+            />
+          </div>
+          <div class="d-flex  mb-3">
+            <label for="model">Created Date:</label>
+            <input
+              class="flex-fill border border-secondary"
+              id="model"
+              value="{{ customerInfo.createdOn }}"
+              [(ngModel)]="customerInfo.createdOn"
+            />
+          </div>
+        </div>
+
+        <button class="btn btn-secondary mt-2" (click)="save()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

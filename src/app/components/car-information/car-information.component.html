@@ -1,0 +1,15 @@
+<div class="container">
+  <button type="button" class="btn btn-outline-danger btn-block" (click)="showSearch()">Search</button>
+  <div *ngIf="searchShow">
+    <app-search (carsOutput)="getCarsFromSearch($event)"></app-search>
+  </div>
+
+  <div class="row">
+    <div class="card bg-light mb-3 w-100 mx-auto">
+      <div class="card-header">Car Information</div>
+      <div class="card-body">
+        <app-car-lists [cars]="cars"></app-car-lists>
+      </div>
+    </div>
+  </div>
+</div>
